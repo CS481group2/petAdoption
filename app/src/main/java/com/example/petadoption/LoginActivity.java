@@ -16,7 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity { // login activity shows the page for logging in and verifies login auth via firebase auth. goes to either main page if login is success or signup page
 
     private FirebaseAuth mAuth;
     private EditText email, password;
@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
 
         else
         {
-            mAuth.signInWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>()
+            mAuth.signInWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() // checks firebase db 
             {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task)
