@@ -42,6 +42,8 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         mAuth = FirebaseAuth.getInstance();  // initializing
+        fName = findViewById(R.id.SignUpFname);
+        lName = findViewById(R.id.SignUpLname);
         email = findViewById(R.id.SignUpEmail);
         password = findViewById(R.id.SignUpPassword);
         buttonSignUp = findViewById(R.id.SignUp);
@@ -86,6 +88,16 @@ public class SignUpActivity extends AppCompatActivity {
         if (pass.isEmpty())
         {
             password.setError("Password can not be empty");
+        }
+
+        if (firstName.isEmpty())
+        {
+            email.setError("first name can not be empty");
+        }
+
+        if (lastName.isEmpty())
+        {
+            password.setError("last name can not be empty");
         }
 
         else
