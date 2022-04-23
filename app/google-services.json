@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "963663939093",
+    "project_id": "petadoption-e740c",
+    "storage_bucket": "petadoption-e740c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:963663939093:android:822c14ca89d8083dc3f01c",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "963663939093-5ark7gbov5obmav621d0klhmevsbu2di.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1nAUC7ycGhtYI4zopS_XvZaf4HyevpLI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "963663939093-5ark7gbov5obmav621d0klhmevsbu2di.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:963663939093:android:22509342c3165d1ac3f01c",
+        "android_client_info": {
+          "package_name": "com.example.petadoption"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "963663939093-p21c6k5rj30a5cv21bevg25pltkqbjl9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.petadoption",
+            "certificate_hash": "dc8541f35868b81f06102028bdc80ab538a04257"
+          }
+        },
+        {
+          "client_id": "963663939093-5ark7gbov5obmav621d0klhmevsbu2di.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1nAUC7ycGhtYI4zopS_XvZaf4HyevpLI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "963663939093-5ark7gbov5obmav621d0klhmevsbu2di.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
