@@ -28,7 +28,7 @@ import java.util.Map;
 public class SignUpActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private EditText email, password;
+    private EditText email, password, fName, lName;
     private Button buttonSignUp;
     private TextView textExisting;
     private FirebaseFirestore fdb;
@@ -75,6 +75,8 @@ public class SignUpActivity extends AppCompatActivity {
     {
         String user = email.getText().toString().trim();
         String pass = password.getText().toString().trim();
+        String firstName = fName.getText().toString().trim();
+        String lastName = lName.getText().toString().trim();
 
         if (user.isEmpty())
         {
@@ -99,9 +101,10 @@ public class SignUpActivity extends AppCompatActivity {
                         DocumentReference docRef = fdb.collection("users").document(UID);
 
                         Map<String, Object> userData = new HashMap<>();
-                        //user.put("firstName", firstName);                    can add more things to the document from registration form! example here
+                        userData.put("firstName", firstName);                   // can add more things to the document from registration form! example here
+                        userData.put("lastName", lastName);
                         userData.put("email", user);
-                        docRef.set(userData).addOnSuccessListener(new OnSuccessListener<Void>()
+                        docRef.set(userData).addOnSuccessListener(new OnSuccessListener<Void>() // for error handeling but can prob just say docRef.set(userData);
                         {
                             @Override
                             public void onSuccess(Void unused)

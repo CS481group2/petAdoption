@@ -18,22 +18,36 @@
         />
 
     <EditText
+        android:id="@+id/SignUpFname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_SignUp"
+        android:layout_marginBottom="20dp"
+        android:hint="First Name" />
+
+    <EditText
+        android:id="@+id/SignUpLname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SignUpFname"
+        android:layout_marginBottom="20dp"
+        android:hint="First Name" />
+
+    <EditText
         android:id="@+id/SignUpEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
-        android:layout_below="@+id/text_SignUp"
+        android:layout_below="@+id/SignUpLname"
         android:layout_marginBottom="20dp"
-        />
+        android:hint="Email" />
 
     <EditText
         android:id="@+id/SignUpPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
         android:layout_below="@+id/SignUpEmail"
         android:layout_marginBottom="20dp"
-        />
+        android:hint="Password" />
 
     <Button
         android:id="@+id/SignUp"
