@@ -45,14 +45,13 @@
         />
 
     <TextView
-        android:id="@+id/text_login"
+        android:id="@+id/text_existing"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/SignUp"
-        android:text="Existing User Login"
         android:layout_marginBottom="20dp"
-        android:textAlignment="center"
         android:gravity="center_horizontal"
-        />
+        android:text="Existing User Login"
+        android:textAlignment="center" />
 
 </RelativeLayout>

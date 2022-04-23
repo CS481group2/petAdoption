@@ -48,6 +48,6 @@ public class MainActivity extends AppCompatActivity {
     public void logout()
     {
         FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent( MainActivity.this, LoginActivity.class));  // switch scenes when log in is clicked?
+        startActivity(new Intent( MainActivity.this, LoginActivity.class));  // switch scenes when logged out
     }
 }

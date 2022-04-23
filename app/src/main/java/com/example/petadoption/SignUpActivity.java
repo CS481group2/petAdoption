@@ -21,7 +21,7 @@ public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText email, password;
     private Button buttonSignUp;
-    private TextView textLogin;
+    private TextView textExisting;
 
 
     @Override
@@ -34,7 +34,7 @@ public class SignUpActivity extends AppCompatActivity {
         email = findViewById(R.id.SignUpEmail);
         password = findViewById(R.id.SignUpPassword);
         buttonSignUp = findViewById(R.id.SignUp);
-        textLogin = findViewById(R.id.text_SignUp);
+        textExisting = findViewById(R.id.text_existing);
 
         buttonSignUp.setOnClickListener(new View.OnClickListener()
         {
@@ -46,7 +46,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
-        textLogin.setOnClickListener(new View.OnClickListener()
+        textExisting.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
