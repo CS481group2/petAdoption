@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity { // login activity shows t
 
         else
         {
-            mAuth.signInWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() // checks firebase db 
+            mAuth.signInWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() // checks firebase db
             {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task)

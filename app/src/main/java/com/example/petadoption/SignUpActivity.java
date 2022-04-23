@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,9 +13,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -22,6 +31,8 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText email, password;
     private Button buttonSignUp;
     private TextView textExisting;
+    private FirebaseFirestore fdb;
+    private String UID;
 
 
     @Override
@@ -35,6 +46,7 @@ public class SignUpActivity extends AppCompatActivity {
         password = findViewById(R.id.SignUpPassword);
         buttonSignUp = findViewById(R.id.SignUp);
         textExisting = findViewById(R.id.text_existing);
+        fdb = FirebaseFirestore.getInstance();
 
         buttonSignUp.setOnClickListener(new View.OnClickListener()
         {
@@ -56,6 +68,8 @@ public class SignUpActivity extends AppCompatActivity {
         });
 
     }
+
+
 
     private void SignUp()
     {
@@ -81,8 +95,25 @@ public class SignUpActivity extends AppCompatActivity {
                 {
                     if (task.isSuccessful())
                     {
+                        UID = mAuth.getCurrentUser().getUid();
+                        DocumentReference docRef = fdb.collection("users").document(UID);
+
+                        Map<String, Object> userData = new HashMap<>();
+                        //user.put("firstName", firstName);                    can add more things to the document from registration form! example here
+                        userData.put("email", user);
+                        docRef.set(userData).addOnSuccessListener(new OnSuccessListener<Void>()
+                        {
+                            @Override
+                            public void onSuccess(Void unused)
+                            {
+                                Log.d("hm", "on success : stuff... " + UID );
+
+                            }
+                        });
+
                         Toast.makeText(SignUpActivity.this, "User Registration Successful", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(SignUpActivity.this, LoginActivity.class));  // go to login page if successful
+
                     }
 
                     else
