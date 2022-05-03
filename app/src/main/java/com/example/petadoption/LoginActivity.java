@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -21,7 +23,11 @@ public class LoginActivity extends AppCompatActivity { // login activity shows t
     private FirebaseAuth mAuth;
     private EditText email, password;
     private Button buttonLogin;
-    private TextView textRegister;
+    private TextView textRegister, fpassword, gLogin;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +39,13 @@ public class LoginActivity extends AppCompatActivity { // login activity shows t
         password = findViewById(R.id.LoginPassword);
         buttonLogin = findViewById(R.id.Login);
         textRegister = findViewById(R.id.text_register);
+        fpassword = findViewById(R.id.forgot_password);
+        gLogin = findViewById(R.id.googleLogin);
+
+
+        //google sign in ( firebase auth:21.0.3)
+
+
 
         buttonLogin.setOnClickListener(new View.OnClickListener()
         {
@@ -52,7 +65,17 @@ public class LoginActivity extends AppCompatActivity { // login activity shows t
                 startActivity(new Intent(LoginActivity.this, SignUpActivity.class));  // click on register go to register this is how u switch scenes
             }
         });
+        fpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent( LoginActivity.this, ForgotPassword.class));
+            }
+        });
     }
+
+
+
+
 
     private void Login() // prob add things like password requirements in here
     {

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
+    android:background="@drawable/bg"
     android:layout_margin="10dp"
     >
 
@@ -12,9 +13,10 @@
         android:id="@+id/text_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enter registered email"
+        android:text="Welcome to Pet Adoption"
         android:textSize="20dp"
         android:layout_marginBottom="20dp"
+
         />
 
     <EditText
@@ -23,8 +25,19 @@
         android:layout_height="wrap_content"
         android:hint="Email"
         android:layout_below="@+id/text_login"
+
+        android:layout_marginEnd="10dp"
+
+        android:layout_marginTop="50dp"
+
+        android:background="#606fa8dc"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:padding="20dp"
         android:layout_marginBottom="20dp"
-        />
+        android:drawableLeft="@drawable/ic_baseline_email_24"
+        android:drawablePadding="10dp"
+        android:layout_marginRight="10dp" />
 
     <EditText
         android:id="@+id/LoginPassword"
@@ -32,27 +45,75 @@
         android:layout_height="wrap_content"
         android:hint="Password"
         android:layout_below="@+id/LoginEmail"
-        android:layout_marginBottom="20dp"
-        />
+        android:background="#606fa8dc"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:layout_marginEnd="10dp"
+
+        android:layout_marginTop="20dp"
+        android:padding="20dp"
+        android:drawableLeft="@drawable/ic_baseline_lock_24"
+        android:drawablePadding="10dp"
+        android:layout_marginRight="10dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/forgot_password"
+        android:clickable="true"
+        android:text="Forgot Password?"
+        android:layout_below="@id/LoginPassword"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="false"
+        android:layout_margin="10dp"
+        android:textSize="20dp"
+        android:focusable="true" />
 
     <Button
         android:id="@+id/Login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/LoginPassword"
+        android:layout_below="@+id/forgot_password"
         android:text="Login"
-        android:layout_marginBottom="20dp"
+        android:layout_margin="10dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/googleLogin"
+        android:layout_below="@id/Login"
+        android:drawableLeft="@drawable/google"
+        android:text="Sign In with Google"
+        android:background="#606fa8dc"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textSize="30dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/no_account"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/googleLogin"
+        android:text="Do not have a account yet?"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp"
         />
 
     <TextView
         android:id="@+id/text_register"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Login"
-        android:text="New User Register"
-        android:layout_marginBottom="20dp"
-        android:textAlignment="center"
-        android:gravity="center_horizontal"
+        android:layout_below="@id/no_account"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="SIGN UP"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:textStyle="bold"
         />
 
 </RelativeLayout>
