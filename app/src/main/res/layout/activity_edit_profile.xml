@@ -4,28 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:layout_margin="10dp">
-
-    <TextView
-
-        android:id="@+id/text_home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="home page"
-        android:layout_centerInParent="true"
-        android:textSize="20dp"
-        android:layout_marginBottom="20dp"
-        />
-
-    <Button
-        android:id="@+id/buttonLogOut"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/text_home"
-        android:text="Log Out"
-        />
-
+    tools:context=".EditProfileActivity">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -36,11 +15,57 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pfp"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_below="@+id/toolbarTop"
+        android:layout_marginTop="20dp"
+        android:layout_centerInParent="true"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnChangePfp"
+        android:text="Change Image"
+        android:layout_below="@+id/pfp"
+        android:layout_centerInParent="true"/>
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/layoutRelNames"
+        android:layout_below="@+id/btnChangePfp"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtFirstName"
+            android:text="FirstName"
+            android:textSize="30dp"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtLastName"
+            android:text="LastName"
+            android:layout_toRightOf="@+id/txtFirstName"
+            android:layout_marginLeft="15dp"
+            android:textSize="30dp"/>
 
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email@Email.com"
+        android:layout_below="@+id/layoutRelNames"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:id="@+id/txtEmail"/>
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarBottom"

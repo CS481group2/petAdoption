@@ -9,7 +9,7 @@ android {
     defaultConfig {
         applicationId "com.example.petadoption"
         minSdk 16
-        multiDexEnabled true
+       // multiDexEnabled true
         targetSdk 32
         versionCode 1
         versionName "1.0"
