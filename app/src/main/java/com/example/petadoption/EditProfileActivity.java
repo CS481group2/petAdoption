@@ -42,7 +42,7 @@ public class EditProfileActivity extends AppCompatActivity
             }
         });
 
-/*        middleRightBtn = findViewById(R.id.middleRightBtn);
+/*        middleRightBtn = findViewById(R.id.middleRightBtn);            all just placeholders for when we combine the rest of the pages
         middleRightBtn.setOnClickListener(new View.OnClickListener()
         {
             @Override
