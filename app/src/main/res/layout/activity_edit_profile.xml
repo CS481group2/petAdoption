@@ -40,14 +40,14 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="20dp">
 
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtFirstName"
             android:text="FirstName"
             android:textSize="30dp"/>
 
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtLastName"
@@ -58,7 +58,7 @@
 
     </RelativeLayout>
 
-    <TextView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Email@Email.com"
