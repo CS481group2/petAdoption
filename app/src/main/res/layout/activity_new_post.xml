@@ -1,71 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditProfileActivity">
-
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarTop"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".NewPostActivity"
+    android:padding="16dp">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/pfp"
-        android:src="@drawable/ic_launcher_background"
-        android:layout_below="@+id/toolbarTop"
-        android:layout_marginTop="20dp"
-        android:layout_centerInParent="true"/>
+        android:id="@+id/New_Post_Image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_upload_image" />
 
     <Button
+        android:id="@+id/New_Post_Upload_Images"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnChangePfp"
-        android:text="Change Image"
-        android:layout_below="@+id/pfp"
-        android:layout_centerInParent="true"/>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/layoutRelNames"
-        android:layout_below="@+id/btnChangePfp"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="20dp">
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtFirstName"
-            android:text="FirstName"
-            android:textSize="30dp"/>
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtLastName"
-            android:text="LastName"
-            android:layout_toRightOf="@+id/txtFirstName"
-            android:layout_marginLeft="15dp"
-            android:textSize="30dp"/>
-
-    </RelativeLayout>
+        android:text="add_images" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:id="@+id/New_Post_PetName"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Email@Email.com"
-        android:layout_below="@+id/layoutRelNames"
-        android:layout_centerHorizontal="true"
-        android:textSize="30dp"
-        android:id="@+id/txtEmail"/>
+        android:ems="10"
+        android:hint="pet_name"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="" />
+
+    <EditText
+        android:id="@+id/New_Post_Breed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="breed_species"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text=""
+        android:textColorHint="#757575" />
+
+    <EditText
+        android:id="@+id/New_Post_Description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="description"
+        android:inputType="textLongMessage|textMultiLine"
+        android:minHeight="48dp"
+        android:text=""
+        android:textAlignment="textStart" />
+
+    <!--suppress AndroidUnresolvableTag -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+
+    <TextView
+        android:id="@+id/text_View"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:text="contact_information" />
+
+    <Button
+        android:id="@+id/Create_New_Post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="create_new_post" />
+
+
+
+
+
+
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarBottom"
@@ -122,4 +134,4 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</RelativeLayout>
+</LinearLayout>

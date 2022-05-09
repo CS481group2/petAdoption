@@ -1,12 +1,12 @@
 package com.example.petadoption;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -65,17 +65,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, MainActivity.class)); // edit when get post viewer scene
             }
         });
-
+*/
         rightBtn = findViewById(R.id.rightBtn);
         rightBtn.setOnClickListener(new OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
-                startActivity(new Intent(MainActivity.this, MainActivity.class)); // edit when get create post scene
+                startActivity(new Intent(MainActivity.this, NewPostActivity.class)); // edit when get create post scene
             }
         });
-
+/*
         btnChangePfp = findViewById(R.id.btnChangePfp);
         btnChangePfp.setOnClickListener(new OnClickListener()
         {

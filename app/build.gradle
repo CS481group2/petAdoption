@@ -8,9 +8,9 @@ android {
 
     defaultConfig {
         applicationId "com.example.petadoption"
-        //minSdk 16
         minSdk 19
-        multiDexEnabled true
+       // multiDexEnabled true
+
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -45,9 +45,9 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.android.support:multidex:1.0.3'
 
+    implementation 'com.github.yalantis:ucrop:2.2.6'
+    implementation 'com.github.yalantis:ucrop:2.2.6-native'
 
-    implementation 'com.google.android.gms:play-services-auth:20.2.0'
-    implementation platform('com.google.firebase:firebase-bom:29.3.1')
     // Also declare the dependency for the Google Play services library and specify its version
     implementation 'com.google.android.gms:play-services-auth:20.2.0'
     // Import the BoM for the Firebase platform

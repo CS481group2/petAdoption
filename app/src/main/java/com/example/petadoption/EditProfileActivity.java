@@ -1,15 +1,11 @@
 package com.example.petadoption;
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 
 public class EditProfileActivity extends AppCompatActivity
 {
@@ -42,33 +38,54 @@ public class EditProfileActivity extends AppCompatActivity
             }
         });
 
-/*        middleRightBtn = findViewById(R.id.middleRightBtn);
-        middleRightBtn.setOnClickListener(new View.OnClickListener()
+
+        leftBtn = findViewById(R.id.leftBtn);
+        leftBtn.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
-                startActivity(new Intent(EditProfileActivity.this, MainActivity.class)); // edit when get post viewer scene
+                startActivity(new Intent(EditProfileActivity.this, EditProfileActivity.class));
             }
         });
 
+        middleLeftBtn = findViewById(R.id.middleLeftBtn);
+        middleLeftBtn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                startActivity(new Intent(EditProfileActivity.this, MainActivity.class));
+            }
+        });
+/*
+        middleRightBtn = findViewById(R.id.middleRightBtn);
+        middleRightBtn.setOnClickListener(new OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                startActivity(new Intent(MainActivity.this, MainActivity.class)); // edit when get post viewer scene
+            }
+        });
+*/
         rightBtn = findViewById(R.id.rightBtn);
         rightBtn.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
-                startActivity(new Intent(EditProfileActivity.this, MainActivity.class)); // edit when get create post scene
+                startActivity(new Intent(EditProfileActivity.this, NewPostActivity.class)); // edit when get create post scene
             }
         });
-
+/*
         btnChangePfp = findViewById(R.id.btnChangePfp);
-        btnChangePfp.setOnClickListener(new View.OnClickListener()
+        btnChangePfp.setOnClickListener(new OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
-                startActivity(new Intent(EditProfileActivity.this, MainActivity.class)); // edit when get chat system
+                startActivity(new Intent(MainActivity.this, MainActivity.class)); // edit when get chat system
             }
         });*/
 
