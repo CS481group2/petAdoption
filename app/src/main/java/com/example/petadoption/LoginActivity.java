@@ -37,22 +37,9 @@ public class LoginActivity extends AppCompatActivity {
     private Button buttonLogin;
     private TextView textRegister, fpassword, gLogin;
 
-    //Dialog dialog;
+    //for google signIN
 
     GoogleSignInClient mGoogleSignInClient;
-/*
-    @Override
-
-    protected void onStart(){
-        super.onStart();
-        FirebaseUser user= mAuth.getCurrentUser();
-        if(user!= null){
-            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-            startActivity(intent);
-        }
-    }
-
-*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,7 +133,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Toast.makeText(LoginActivity.this,"DONE",Toast.LENGTH_SHORT).show();
+                           // Toast.makeText(LoginActivity.this,"DONE",Toast.LENGTH_SHORT).show();
                             FirebaseUser user = mAuth.getCurrentUser();
 
 
@@ -158,12 +145,7 @@ public class LoginActivity extends AppCompatActivity {
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
-                            //  Log.w(TAG, "signInWithCredential:failure", task.getException());
-                            //  Snackbar.make(mBinding.mainLayout, "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
-                            // updateUI(null);
-                            //dialog.dismiss();
-
-                            Toast.makeText(LoginActivity.this,"Login failed",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this,"Login failed",Toast.LENGTH_SHORT).show();
                             finish();
                         }
 
