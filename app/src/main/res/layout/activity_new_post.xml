@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".NewPostActivity"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/New_Post_Image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_upload_image" />
+
+    <Button
+        android:id="@+id/New_Post_Upload_Images"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="add_images" />
+
+    <EditText
+        android:id="@+id/New_Post_PetName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="pet_name"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="" />
+
+    <EditText
+        android:id="@+id/New_Post_Breed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="breed_species"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text=""
+        android:textColorHint="#757575" />
+
+    <EditText
+        android:id="@+id/New_Post_Description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="description"
+        android:inputType="textLongMessage|textMultiLine"
+        android:minHeight="48dp"
+        android:text=""
+        android:textAlignment="textStart" />
+
+    <!--suppress AndroidUnresolvableTag -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+
+    <TextView
+        android:id="@+id/text_View"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:text="contact_information" />
+
+    <Button
+        android:id="@+id/Create_New_Post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="create_new_post" />
+
+
+
+
+
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp">
+
+
+        <Button
+            android:id="@+id/leftBtn"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/middleLeftBtn"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:backgroundTint="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/leftBtn" />
+
+        <Button
+            android:id="@+id/middleRightBtn"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:backgroundTint="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/middleLeftBtn" />
+
+        <Button
+            android:id="@+id/rightBtn"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:backgroundTint="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/middleRightBtn" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>
