@@ -43,6 +43,7 @@
         android:id="@+id/LoginPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:password="true"
         android:hint="Password"
         android:layout_below="@+id/LoginEmail"
         android:background="#606fa8dc"
@@ -59,6 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/forgot_password"
+
         android:clickable="true"
         android:text="Forgot Password?"
         android:layout_below="@id/LoginPassword"
@@ -74,7 +76,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/forgot_password"
         android:text="Login"
+        android:textSize="20dp"
         android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:padding="10dp"
         />
     <TextView
         android:layout_width="match_parent"
@@ -83,10 +88,16 @@
         android:layout_below="@id/Login"
         android:drawableLeft="@drawable/google"
         android:text="Sign In with Google"
-        android:background="#606fa8dc"
+        android:textStyle="bold"
+        android:background="#10A5F5"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:textSize="30dp"
+        android:layout_marginTop="40dp"
+        android:drawablePadding="20dp"
+        android:paddingRight="30dp"
+        android:textSize="25dp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         />
     <TextView
         android:layout_width="wrap_content"

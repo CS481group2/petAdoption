@@ -23,6 +23,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class SignUpActivity extends AppCompatActivity {
@@ -80,6 +82,11 @@ public class SignUpActivity extends AppCompatActivity {
         String firstName = fName.getText().toString().trim();
         String lastName = lName.getText().toString().trim();
 
+
+        //pass word special char test
+        Pattern p= Pattern.compile("[^a-z0-9]", Pattern.CASE_INSENSITIVE);
+        Matcher match=p.matcher(pass);
+        boolean check = match.find();
         if (user.isEmpty())
         {
             email.setError("Email can not be empty");
@@ -92,14 +99,19 @@ public class SignUpActivity extends AppCompatActivity {
 
         if (firstName.isEmpty())
         {
-            email.setError("first name can not be empty");
+            fName.setError("First name can not be empty");
         }
 
         if (lastName.isEmpty())
         {
-            password.setError("last name can not be empty");
+            lName.setError("Last name can not be empty");
         }
-
+        if(check == false){
+            password.setError("Special Character needed");
+        }
+        if ( pass.length() < 6 ){
+            password.setError("Password Must be 6 Character long ");
+        }
         else
         {
             mAuth.createUserWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>()
