@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:layout_margin="10dp">
+    tools:context=".MainActivity">
 
     <TextView
 
@@ -25,21 +24,6 @@
         android:layout_below="@+id/text_home"
         android:text="Log Out"
         />
-
-
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarTop"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
-
-
-
-
-
 
 
     <androidx.appcompat.widget.Toolbar

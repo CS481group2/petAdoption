@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".NewPostActivity"
-    android:padding="16dp">
+    tools:context=".NewPostActivity">
 
     <ImageView
         android:id="@+id/New_Post_Image"
@@ -15,13 +14,17 @@
         android:layout_height="150dp"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_upload_image" />
+        android:src="@drawable/ic_upload_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
 
     <Button
         android:id="@+id/New_Post_Upload_Images"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="add_images" />
+        android:text="add_images"
+        android:layout_below="@+id/New_Post_Image"
+        android:layout_centerHorizontal="true"/>
 
     <EditText
         android:id="@+id/New_Post_PetName"
@@ -31,7 +34,10 @@
         android:hint="pet_name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="" />
+        android:text=""
+        android:layout_below="@+id/New_Post_Upload_Images"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"/>
 
     <EditText
         android:id="@+id/New_Post_Breed"
@@ -42,7 +48,10 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:text=""
-        android:textColorHint="#757575" />
+        android:textColorHint="#757575"
+        android:layout_below="@+id/New_Post_PetName"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"/>
 
     <EditText
         android:id="@+id/New_Post_Description"
@@ -53,7 +62,10 @@
         android:inputType="textLongMessage|textMultiLine"
         android:minHeight="48dp"
         android:text=""
-        android:textAlignment="textStart" />
+        android:textAlignment="textStart"
+        android:layout_below="@+id/New_Post_Breed"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"/>
 
     <!--suppress AndroidUnresolvableTag -->
     <Space
@@ -65,19 +77,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:focusable="false"
-        android:text="contact_information" />
+        android:text="contact_information"
+        android:layout_below="@id/New_Post_Description"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="120dp"/>
 
     <Button
         android:id="@+id/Create_New_Post"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="create_new_post" />
-
-
-
-
-
-
+        android:text="create_new_post"
+        android:layout_below="@+id/text_View"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"/>
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarBottom"
@@ -134,4 +147,4 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</LinearLayout>
+</RelativeLayout>

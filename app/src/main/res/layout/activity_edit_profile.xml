@@ -7,22 +7,13 @@
     tools:context=".EditProfileActivity">
 
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarTop"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/pfp"
         android:src="@drawable/ic_launcher_background"
-        android:layout_below="@+id/toolbarTop"
-        android:layout_marginTop="20dp"
-        android:layout_centerInParent="true"/>
+        android:layout_marginTop="150dp"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -48,13 +39,13 @@
             android:textSize="30dp"/>
 
         <EditText
+            android:id="@+id/txtLastName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtLastName"
-            android:text="LastName"
-            android:layout_toRightOf="@+id/txtFirstName"
             android:layout_marginLeft="15dp"
-            android:textSize="30dp"/>
+            android:layout_toRightOf="@+id/txtFirstName"
+            android:text="LastName"
+            android:textSize="30dp" />
 
     </RelativeLayout>
 
