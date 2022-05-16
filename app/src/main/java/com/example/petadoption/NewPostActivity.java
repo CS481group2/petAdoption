@@ -29,6 +29,7 @@ import com.yalantis.ucrop.UCrop;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.UUID;
 
 public class NewPostActivity extends AppCompatActivity
@@ -65,7 +66,7 @@ public class NewPostActivity extends AppCompatActivity
         firebaseFirestore = FirebaseFirestore.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();
 
-        //       current_user_id = Objects.requireNonNull(firebaseAuth.getCurrentUser()).getUid();
+        current_user_id = Objects.requireNonNull(firebaseAuth.getCurrentUser()).getUid();
 
         NewPostDescription = findViewById(R.id.New_Post_Description);
         NewPostBreed = findViewById(R.id.New_Post_Breed);
@@ -109,7 +110,7 @@ public class NewPostActivity extends AppCompatActivity
                                 Map<String, Object> postMap = new HashMap<>();
                                 postMap.put("image_url", downloadUri.toString());
                                 postMap.put("desc", description);
-                                //                             postMap.put("user_id", current_user_id);
+                                postMap.put("user_id", current_user_id);
                                 postMap.put("timestamp", FieldValue.serverTimestamp());
                                 postMap.put("breed", Breed);
                                 postMap.put("petname", petname);

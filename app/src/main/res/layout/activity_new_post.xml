@@ -12,11 +12,12 @@
         android:id="@+id/New_Post_Image"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_upload_image"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/add_image"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_upload_image" />
 
     <Button
         android:id="@+id/New_Post_Upload_Images"
@@ -43,29 +44,29 @@
         android:id="@+id/New_Post_Breed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/New_Post_PetName"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:ems="10"
         android:hint="breed_species"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:text=""
-        android:textColorHint="#757575"
-        android:layout_below="@+id/New_Post_PetName"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"/>
+        tools:ignore="TextContrastCheck" />
 
     <EditText
         android:id="@+id/New_Post_Description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/New_Post_Breed"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:ems="10"
         android:hint="description"
         android:inputType="textLongMessage|textMultiLine"
         android:minHeight="48dp"
         android:text=""
-        android:textAlignment="textStart"
-        android:layout_below="@+id/New_Post_Breed"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"/>
+        android:textAlignment="textStart" />
 
     <!--suppress AndroidUnresolvableTag -->
     <Space
@@ -76,21 +77,21 @@
         android:id="@+id/text_View"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:focusable="false"
-        android:text="contact_information"
         android:layout_below="@id/New_Post_Description"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="120dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="120dp"/>
+        android:focusable="false" />
 
     <Button
         android:id="@+id/Create_New_Post"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="create_new_post"
-        android:layout_below="@+id/text_View"
+        android:layout_alignTop="@+id/text_View"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="16dp"
+        android:text="create_new_post" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarBottom"
@@ -114,7 +115,8 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <Button
             android:id="@+id/middleLeftBtn"
@@ -123,7 +125,8 @@
             android:layout_marginLeft="20dp"
             android:backgroundTint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@+id/leftBtn" />
+            app:layout_constraintLeft_toRightOf="@+id/leftBtn"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <Button
             android:id="@+id/middleRightBtn"
@@ -132,7 +135,8 @@
             android:layout_marginLeft="20dp"
             android:backgroundTint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@+id/middleLeftBtn" />
+            app:layout_constraintLeft_toRightOf="@+id/middleLeftBtn"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <Button
             android:id="@+id/rightBtn"
@@ -141,7 +145,8 @@
             android:layout_marginLeft="20dp"
             android:backgroundTint="@color/purple_200"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@+id/middleRightBtn" />
+            app:layout_constraintLeft_toRightOf="@+id/middleRightBtn"
+            tools:ignore="SpeakableTextPresentCheck" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
