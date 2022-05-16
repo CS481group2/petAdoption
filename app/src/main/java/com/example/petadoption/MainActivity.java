@@ -75,16 +75,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, NewPostActivity.class)); // edit when get create post scene
             }
         });
-/*
+
         btnChangePfp = findViewById(R.id.btnChangePfp);
         btnChangePfp.setOnClickListener(new OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
-                startActivity(new Intent(MainActivity.this, MainActivity.class)); // edit when get chat system
+                startActivity(new Intent(MainActivity.this, UsersActivity.class)); // edit when get chat system
             }
-        });*/
+        });
 
     }
 

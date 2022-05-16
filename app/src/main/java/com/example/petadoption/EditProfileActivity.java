@@ -58,17 +58,17 @@ public class EditProfileActivity extends AppCompatActivity
                 startActivity(new Intent(EditProfileActivity.this, MainActivity.class));
             }
         });
-/*
+
         middleRightBtn = findViewById(R.id.middleRightBtn);
-        middleRightBtn.setOnClickListener(new OnClickListener()
+        middleRightBtn.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
-                startActivity(new Intent(MainActivity.this, MainActivity.class)); // edit when get post viewer scene
+                startActivity(new Intent(EditProfileActivity.this, UsersActivity.class)); // edit when get post viewer scene
             }
         });
-*/
+
         rightBtn = findViewById(R.id.rightBtn);
         rightBtn.setOnClickListener(new View.OnClickListener()
         {

@@ -178,15 +178,15 @@ public class NewPostActivity extends AppCompatActivity
         });
 /*
         btnChangePfp = findViewById(R.id.btnChangePfp);
-        btnChangePfp.setOnClickListener(new OnClickListener()
+        btnChangePfp.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
-                startActivity(new Intent(MainActivity.this, MainActivity.class)); // edit when get chat system
+                startActivity(new Intent(NewPostActivity.this, UsersActivity.class)); // edit when get chat system
             }
-        });*/
-
+        });
+*/
 
     }
       @Override
