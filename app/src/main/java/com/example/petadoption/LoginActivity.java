@@ -4,11 +4,14 @@ import androidx.annotation.NonNull;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText email, password;
     private Button buttonLogin;
     private TextView textRegister, fpassword, gLogin;
+    private RelativeLayout layout;
 
     //for google signIN
 
@@ -54,6 +58,17 @@ public class LoginActivity extends AppCompatActivity {
         textRegister = findViewById(R.id.text_register);
         fpassword = findViewById(R.id.forgot_password);
         gLogin = findViewById(R.id.googleLogin);
+
+        // keyboard close
+        layout= findViewById(R.id.relative);
+        layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(),0);
+
+            }
+        });
 
 
         //google sign in ( firebase auth:21.0.3)
