@@ -35,6 +35,8 @@
         <activity
             android:name=".SignUpActivity"
             android:exported="false" />
+        <activity android:name=".PostViewer"
+            android:exported="false"/>
         <activity
             android:name=".UsersActivity"
             android:exported="false" />
