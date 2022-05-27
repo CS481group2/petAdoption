@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.petadoption.databinding.ActivityEditProfileBinding;
+import com.example.petadoption.databinding.ActivityPostViewerBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -18,16 +20,21 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PostViewer extends AppCompatActivity {
+public class PostViewer extends DrawerBaseActivity {
     private RecyclerView RV;
     private ArrayList<Animal> animalArrayList;
     private RVAdapter animalRVAdapter;
     private FirebaseFirestore db;
 
+    // Dashboard stuff
+    ActivityPostViewerBinding activityPostViewerBinding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post_viewer);
+        activityPostViewerBinding = ActivityPostViewerBinding.inflate(getLayoutInflater());
+        setContentView(activityPostViewerBinding.getRoot());
+        allocateActivityTitle("Posts");
 
         RV = findViewById(R.id.recyclerview);
 

@@ -6,24 +6,26 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import com.example.petadoption.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 
-
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends DrawerBaseActivity {
 
     private FirebaseAuth mAuth;
     private Button buttonLogOut;
     private Button leftBtn, middleLeftBtn, middleRightBtn, rightBtn,btnChangePfp;
 
+    // Nav drawer stuff
+    ActivityMainBinding activityMainBinding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        activityMainBinding = activityMainBinding.inflate(getLayoutInflater());
+        setContentView(activityMainBinding.getRoot());
+        allocateActivityTitle("Sign Off");
 
         mAuth = FirebaseAuth.getInstance();   // for authentication firebase
         buttonLogOut = findViewById(R.id.buttonLogOut);
@@ -36,25 +38,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        leftBtn = findViewById(R.id.leftBtn);
-        leftBtn.setOnClickListener(new OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                startActivity(new Intent(MainActivity.this, EditProfileActivity.class));
-            }
-        });
 
-        middleLeftBtn = findViewById(R.id.middleLeftBtn);
-        middleLeftBtn.setOnClickListener(new OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                startActivity(new Intent(MainActivity.this, MainActivity.class));
-            }
-        });
+
+
 /*
         middleRightBtn = findViewById(R.id.middleRightBtn);
         middleRightBtn.setOnClickListener(new OnClickListener()
@@ -66,15 +52,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 */
-        rightBtn = findViewById(R.id.rightBtn);
-        rightBtn.setOnClickListener(new OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                startActivity(new Intent(MainActivity.this, NewPostActivity.class)); // edit when get create post scene
-            }
-        });
 
         btnChangePfp = findViewById(R.id.btnChangePfp);
         btnChangePfp.setOnClickListener(new OnClickListener()

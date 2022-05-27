@@ -93,63 +93,7 @@
         android:layout_marginRight="16dp"
         android:text="create_new_post" />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarBottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="20dp">
-
-
-        <Button
-            android:id="@+id/leftBtn"
-            android:layout_width="75dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <Button
-            android:id="@+id/middleLeftBtn"
-            android:layout_width="75dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:backgroundTint="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@+id/leftBtn"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <Button
-            android:id="@+id/middleRightBtn"
-            android:layout_width="75dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:backgroundTint="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@+id/middleLeftBtn"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <Button
-            android:id="@+id/rightBtn"
-            android:layout_width="75dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:backgroundTint="@color/purple_200"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@+id/middleRightBtn"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </RelativeLayout>

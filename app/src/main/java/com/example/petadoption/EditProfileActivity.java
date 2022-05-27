@@ -1,4 +1,5 @@
 package com.example.petadoption;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -10,6 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.example.petadoption.databinding.ActivityEditProfileBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -28,13 +33,9 @@ import com.google.firebase.storage.UploadTask;
 import java.io.File;
 import java.io.IOException;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
-public class EditProfileActivity extends AppCompatActivity
+public class EditProfileActivity extends DrawerBaseActivity
 {
-    private Button leftBtn, middleLeftBtn, middleRightBtn, rightBtn,btnChangePfp;
+    private Button btnChangePfp;
     private ImageView pfp;
     // firebase tools for uploading images and retriving the name
     FirebaseStorage storage;
@@ -45,6 +46,9 @@ public class EditProfileActivity extends AppCompatActivity
     private  String userID;
     TextView emailTextView, fnameTextView;
 
+    // Dashboard stuff
+    ActivityEditProfileBinding activityEditProfileBinding;
+
     // firestore stuffs
     private  static  final String KEY_FIRSTNAME= "firstName";
     private  static  final String KEY_LASTNAME= "lastName";
@@ -54,9 +58,11 @@ public class EditProfileActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_profile);
+        activityEditProfileBinding = activityEditProfileBinding.inflate(getLayoutInflater());
+        setContentView(activityEditProfileBinding.getRoot());
+        allocateActivityTitle("Edit Profile");
+
         pfp = findViewById(R.id.pfp);
-        leftBtn = findViewById(R.id.leftBtn);
         btnChangePfp= findViewById(R.id.btnChangePfp);
 
         // firebase stuffs
@@ -109,7 +115,6 @@ public class EditProfileActivity extends AppCompatActivity
                 updateImage();
             }
 
-
         });
         // showing old picture before updating
         final StorageReference imgRef = storage.getReference().child("profile_picture").child(FirebaseAuth.getInstance().getUid());
@@ -127,65 +132,7 @@ public class EditProfileActivity extends AppCompatActivity
         }
 
 
-        leftBtn.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                startActivity(new Intent(EditProfileActivity.this, EditProfileActivity.class));
-            }
-        });
 
-        middleLeftBtn = findViewById(R.id.middleLeftBtn);
-        middleLeftBtn.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                startActivity(new Intent(EditProfileActivity.this, MainActivity.class));
-            }
-        });
-
-
-        leftBtn = findViewById(R.id.leftBtn);
-        leftBtn.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                startActivity(new Intent(EditProfileActivity.this, EditProfileActivity.class));
-            }
-        });
-
-        middleLeftBtn = findViewById(R.id.middleLeftBtn);
-        middleLeftBtn.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                startActivity(new Intent(EditProfileActivity.this, MainActivity.class));
-            }
-        });
-
-        middleRightBtn = findViewById(R.id.middleRightBtn);
-        middleRightBtn.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                startActivity(new Intent(EditProfileActivity.this, UsersActivity.class)); // edit when get post viewer scene
-            }
-        });
-
-        rightBtn = findViewById(R.id.rightBtn);
-        rightBtn.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                startActivity(new Intent(EditProfileActivity.this, NewPostActivity.class)); // edit when get create post scene
-            }
-        });
 /*
         btnChangePfp = findViewById(R.id.btnChangePfp);
         btnChangePfp.setOnClickListener(new OnClickListener()

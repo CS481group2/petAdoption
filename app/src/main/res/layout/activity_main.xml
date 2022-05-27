@@ -26,56 +26,11 @@
         />
 
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarBottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="20dp">
-
-
-        <Button
-            android:id="@+id/leftBtn"
-            android:layout_width="75dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/middleLeftBtn"
-            android:layout_width="75dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:backgroundTint="@color/purple_200"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@+id/leftBtn" />
-
-        <Button
-            android:id="@+id/middleRightBtn"
-            android:layout_width="75dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:backgroundTint="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@+id/middleLeftBtn" />
-
-        <Button
-            android:id="@+id/rightBtn"
-            android:layout_width="75dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:backgroundTint="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@+id/middleRightBtn" />
 
         <Button
             android:id="@+id/btnChangePfp"
@@ -84,9 +39,7 @@
             android:backgroundTint="@color/black"
             tools:layout_editor_absoluteX="327dp"
             tools:layout_editor_absoluteY="3dp"
-
             tools:ignore="MissingConstraints" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

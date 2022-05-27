@@ -14,8 +14,8 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.petadoption.databinding.ActivityNewPostBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-public class NewPostActivity extends AppCompatActivity
+public class NewPostActivity extends DrawerBaseActivity
 {
 
     private EditText NewPostDescription;
@@ -47,6 +47,9 @@ public class NewPostActivity extends AppCompatActivity
     private ImageView newPostImage;
     ActivityResultLauncher<String> mGetContent;
 
+    // Nav Drawer stuff
+    ActivityNewPostBinding activityNewPostBinding;
+
 
     private StorageReference storageReference;
     private FirebaseFirestore firebaseFirestore;
@@ -60,7 +63,9 @@ public class NewPostActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_post);
+        activityNewPostBinding = activityNewPostBinding.inflate(getLayoutInflater());
+        setContentView(activityNewPostBinding.getRoot());
+        allocateActivityTitle("New Post");
 
         storageReference = FirebaseStorage.getInstance().getReference();
         firebaseFirestore = FirebaseFirestore.getInstance();
@@ -138,25 +143,9 @@ public class NewPostActivity extends AppCompatActivity
 
         });
 
-        leftBtn = findViewById(R.id.leftBtn);
-        leftBtn.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                startActivity(new Intent(NewPostActivity.this, EditProfileActivity.class));
-            }
-        });
 
-        middleLeftBtn = findViewById(R.id.middleLeftBtn);
-        middleLeftBtn.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                startActivity(new Intent(NewPostActivity.this, MainActivity.class));
-            }
-        });
+
+
 /*
         middleRightBtn = findViewById(R.id.middleRightBtn);
         middleRightBtn.setOnClickListener(new OnClickListener()
@@ -168,15 +157,7 @@ public class NewPostActivity extends AppCompatActivity
             }
         });
 */
-        rightBtn = findViewById(R.id.rightBtn);
-        rightBtn.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                startActivity(new Intent(NewPostActivity.this, NewPostActivity.class)); // edit when get create post scene
-            }
-        });
+
 /*
         btnChangePfp = findViewById(R.id.btnChangePfp);
         btnChangePfp.setOnClickListener(new View.OnClickListener()

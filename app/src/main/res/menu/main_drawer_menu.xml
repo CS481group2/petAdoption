@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_baseline_account_box_24"
+            android:title="My Profile"/>
+
+        <item android:id="@+id/nav_viewPost"
+            android:icon="@drawable/ic_baseline_pageview_24"
+            android:title="View Posts"/>
+
+        <item android:id="@+id/nav_createPost"
+            android:icon="@drawable/ic_baseline_create_24"
+            android:title="Create Post"/>
+
+        <item android:id="@+id/nav_signOff"
+            android:icon="@drawable/ic_baseline_logout_24"
+            android:title="Sign Off"/>
+
+    </group>
+</menu>
