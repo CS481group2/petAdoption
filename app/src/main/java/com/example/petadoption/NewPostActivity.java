@@ -38,10 +38,8 @@ public class NewPostActivity extends DrawerBaseActivity
     private EditText NewPostDescription;
     private EditText NewPostBreed;
     private EditText NewPostPetName;
+    private EditText NewPostLocation;
 
-    private EditText NewPostEmail;
-    private EditText NewPostphonenumber;
-    private Button NewPostUploadImages;
     private Button CreateNewPost;
     private Uri postImageUri;
     private ImageView newPostImage;
@@ -76,9 +74,9 @@ public class NewPostActivity extends DrawerBaseActivity
         NewPostDescription = findViewById(R.id.New_Post_Description);
         NewPostBreed = findViewById(R.id.New_Post_Breed);
         NewPostPetName = findViewById(R.id.New_Post_PetName);
-        NewPostUploadImages = findViewById(R.id.New_Post_Upload_Images);
         CreateNewPost = findViewById(R.id.Create_New_Post);
         newPostImage = findViewById(R.id.New_Post_Image);
+        NewPostLocation = findViewById(R.id.New_Post_Location);
 
         newPostImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +100,7 @@ public class NewPostActivity extends DrawerBaseActivity
                 String Breed = NewPostBreed.getText().toString();
                 String petname = NewPostPetName.getText().toString();
                 String description = NewPostDescription.getText().toString();
+                String location = NewPostLocation.getText().toString();
                 if (!TextUtils.isEmpty(description) && newPostImage != null) {
 
                     String randomName = UUID.randomUUID().toString();
@@ -119,6 +118,7 @@ public class NewPostActivity extends DrawerBaseActivity
                                 postMap.put("timestamp", FieldValue.serverTimestamp());
                                 postMap.put("breed", Breed);
                                 postMap.put("petname", petname);
+                                postMap.put("location", location);
                                 firebaseFirestore.collection("Posts").add(postMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentReference> task) {

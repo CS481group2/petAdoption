@@ -14,31 +14,24 @@
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:adjustViewBounds="true"
+        android:adjustViewBounds="false"
         android:contentDescription="@string/add_image"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_upload_image" />
-
-    <Button
-        android:id="@+id/New_Post_Upload_Images"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="add_images"
-        android:layout_below="@+id/New_Post_Image"
-        android:layout_centerHorizontal="true"/>
+        android:src="@drawable/ic_upload_image"
+        tools:layout_centerHorizontal="true" />
 
     <EditText
         android:id="@+id/New_Post_PetName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/New_Post_Image"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:ems="10"
-        android:hint="pet_name"
+        android:hint="Pet Name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text=""
-        android:layout_below="@+id/New_Post_Upload_Images"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"/>
+        android:text="" />
 
     <EditText
         android:id="@+id/New_Post_Breed"
@@ -48,7 +41,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:ems="10"
-        android:hint="breed_species"
+        android:hint="Breed"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:text=""
@@ -62,16 +55,28 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:ems="10"
-        android:hint="description"
+        android:hint="Description"
         android:inputType="textLongMessage|textMultiLine"
         android:minHeight="48dp"
         android:text=""
         android:textAlignment="textStart" />
 
     <!--suppress AndroidUnresolvableTag -->
-    <Space
+
+    <EditText
+        android:id="@+id/New_Post_Location"
         android:layout_width="match_parent"
-        android:layout_height="100dp" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/New_Post_Breed"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:hint="Location"
+        android:inputType="textLongMessage"
+        android:minHeight="48dp"
+        android:text=""
+        android:textAlignment="textStart" />
 
     <TextView
         android:id="@+id/text_View"
@@ -91,7 +96,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="16dp"
-        android:text="create_new_post" />
+        android:text="create new post" />
 
 
 
