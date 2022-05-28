@@ -87,7 +87,21 @@ public class EditProfileActivity extends DrawerBaseActivity
                 FirebaseFirestore fdb = FirebaseFirestore.getInstance();
 
                 DocumentReference docRef = fdb.collection("Posts").document(userID);
-                docRef.delete();
+                docRef.delete().addOnCompleteListener(new OnCompleteListener<Void>()
+                {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task)
+                    {
+                        if (task.isSuccessful())
+                        {
+                            Toast.makeText(EditProfileActivity.this, "You successfully deleted the post", Toast.LENGTH_LONG).show();
+                        }
+                        else
+                        {
+                            Toast.makeText(EditProfileActivity.this, "No posts to delete", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
             }
 
         });
@@ -167,17 +181,7 @@ public class EditProfileActivity extends DrawerBaseActivity
 
     }
 
-//    private void DeletePost()
-//    {
-//        DocumentReference docRef = FirebaseFirestore.getInstance() .collection("users").document(userID).delete().addOnSuccessListener(new OnSuccessListener<Void>()
-//        {
-//                    @Override
-//                    public void onSuccess(Void aVoid)
-//                    {
-//                        Toast.makeText(EditProfileActivity.this, "You successfully deleted the post", Toast.LENGTH_LONG).show();
-//                    }
-//        });
-//    }
+
 
     private void updateImage() {
     }
