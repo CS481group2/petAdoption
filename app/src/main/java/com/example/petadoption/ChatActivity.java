@@ -30,6 +30,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -49,6 +50,11 @@ public class ChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
+        /*for (int i = 0; i < UserController.userD.size(); i++)
+        {
+            Log.println(Log.ASSERT, "USER", UserController.userD.get(i).getName());
+        }*/
+
         user = FirebaseAuth.getInstance().getCurrentUser();
         userID = user.getUid();
 
@@ -60,6 +66,7 @@ public class ChatActivity extends AppCompatActivity {
         Firebase.setAndroidContext(this);
         reference1 = new Firebase("https://petadoption-e740c-default-rtdb.firebaseio.com/messages/" + UserController.currentUser.getName() + "_" + UserController.currentUser.getChatWith());
         Log.println(Log.ASSERT, "PLEASE", UserController.currentUser.getName());
+        Log.println(Log.ASSERT, "WHOMST", UserController.currentUser.getChatWith());
         reference2 = new Firebase("https://petadoption-e740c-default-rtdb.firebaseio.com/messages/" + UserController.currentUser.getChatWith() + "_" + UserController.currentUser.getName());
 
         sendButton.setOnClickListener(new View.OnClickListener() {

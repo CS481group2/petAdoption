@@ -1,5 +1,7 @@
 package com.example.petadoption;
 
+import java.io.Serializable;
+
 public class UserDetails {
     static String name = "";
     static String uid = "";

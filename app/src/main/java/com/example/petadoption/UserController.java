@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class UserController implements Serializable {
 
+
     public static ArrayList<UserDetails> userD = new ArrayList<>();
     public static UserDetails currentUser;
 

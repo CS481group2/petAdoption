@@ -199,9 +199,6 @@ public class LoginActivity extends AppCompatActivity {
                     if (task.isSuccessful())
                     {
                         Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                        UserDetails.name = user;
-                        UserDetails.password = pass;
-                        UserDetails.uid = mUser.getUid();
                         startActivity(new Intent(LoginActivity.this, MainActivity.class)); // if login successful move to mainActivity
                     }
                     else

@@ -28,6 +28,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -119,7 +120,6 @@ public class UsersActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 UserController.currentUser.setChatWith(al.get(position));
-                Log.println(Log.ASSERT, "WHOMST", UserController.currentUser.getChatWith());
                 //UserController.userD.get(position).setChatWith(al.get(position));
                 startActivity(new Intent(UsersActivity.this, ChatActivity.class));
             }
