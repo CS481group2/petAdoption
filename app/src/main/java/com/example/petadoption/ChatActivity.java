@@ -35,6 +35,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ChatActivity extends AppCompatActivity {
+
+
     LinearLayout layout;
     ImageView sendButton;
     EditText messageArea;
@@ -64,10 +66,10 @@ public class ChatActivity extends AppCompatActivity {
         scrollView = (ScrollView)findViewById(R.id.scrollView);
 
         Firebase.setAndroidContext(this);
-        reference1 = new Firebase("https://petadoption-e740c-default-rtdb.firebaseio.com/messages/" + UserController.currentUser.getName() + "_" + UserController.currentUser.getChatWith());
-        Log.println(Log.ASSERT, "PLEASE", UserController.currentUser.getName());
-        Log.println(Log.ASSERT, "WHOMST", UserController.currentUser.getChatWith());
-        reference2 = new Firebase("https://petadoption-e740c-default-rtdb.firebaseio.com/messages/" + UserController.currentUser.getChatWith() + "_" + UserController.currentUser.getName());
+        reference1 = new Firebase("https://petadoption-e740c-default-rtdb.firebaseio.com/messages/" + UsersActivity.currentUser.getName() + "_" + UsersActivity.currentUser.getChatWith());
+        Log.println(Log.ASSERT, "PLEASE", UsersActivity.currentUser.getName());
+        Log.println(Log.ASSERT, "WHOMST", UsersActivity.currentUser.getChatWith());
+        reference2 = new Firebase("https://petadoption-e740c-default-rtdb.firebaseio.com/messages/" + UsersActivity.currentUser.getChatWith() + "_" + UsersActivity.currentUser.getName());
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +79,7 @@ public class ChatActivity extends AppCompatActivity {
                 if(!messageText.equals("")){
                     Map<String, String> map = new HashMap<String, String>();
                     map.put("message", messageText);
-                    map.put("user", UserController.currentUser.getName());
+                    map.put("user", UsersActivity.currentUser.getName());
                     reference1.push().setValue(map);
                     reference2.push().setValue(map);
                 }
@@ -91,11 +93,11 @@ public class ChatActivity extends AppCompatActivity {
                 String message = map.get("message").toString();
                 String userName = map.get("user").toString();
 
-                if((UserController.getUsername(userName))){
+                if((UsersActivity.getUsername(userName))){
                     addMessageBox("You:-\n" + message, 1);
                 }
                 else{
-                    addMessageBox(UserController.currentUser.getChatWith() + ":-\n" + message, 2);
+                    addMessageBox(UsersActivity.currentUser.getChatWith() + ":-\n" + message, 2);
                 }
             }
 

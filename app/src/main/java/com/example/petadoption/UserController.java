@@ -2,7 +2,7 @@ package com.example.petadoption;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
+/*
 public class UserController implements Serializable {
 
 
@@ -35,4 +35,4 @@ public class UserController implements Serializable {
         }
         return null;
     }
-}
+}*/

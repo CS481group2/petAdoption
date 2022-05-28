@@ -41,6 +41,39 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 //import android.support.v7.app.AppCompatActivity;
 
 public class UsersActivity extends AppCompatActivity {
+
+
+    public static ArrayList<UserDetails> userD = new ArrayList<>();
+    public static UserDetails currentUser;
+
+    public static boolean getUsername(String user)
+    {
+        for(int i = 0; i < userD.size(); i++)
+        {
+            if(user.equals(userD.get(i).getName())) return true;
+        }
+        return false;
+    }
+
+    public static String getChattingWith(String user)
+    {
+        for(int i = 0; i < userD.size(); i++)
+        {
+            if(user.equals(userD.get(i).getName())) return userD.get(i).getChatWith();
+        }
+        return "";
+    }
+
+    public static UserDetails getCurrUser(String uid)
+    {
+        for(int i = 0; i < userD.size(); i++)
+        {
+            if(userD.get(i).getUid().equals(uid)) return userD.get(i);
+        }
+        return null;
+    }
+
+
     ListView usersList;
     TextView noUsersText;
     ArrayList<String> al = new ArrayList<>();
@@ -56,7 +89,6 @@ public class UsersActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,16 +102,9 @@ public class UsersActivity extends AppCompatActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
         userID = user.getUid();
 
-        DocumentReference docRef = FirebaseFirestore.getInstance() .collection("users").document(userID);
-        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if(task.isSuccessful()){
-                    UserController.currentUser = new UserDetails(task.getResult().getString("firstName") + " " + task.getResult().getString("lastName"), userID);
-                    Log.println(Log.ASSERT, "???", UserController.currentUser.getName());
-                }
-            }
-        });
+
+
+
 
         db.collection("users")
                 .get()
@@ -88,7 +113,7 @@ public class UsersActivity extends AppCompatActivity {
                         for(QueryDocumentSnapshot queryDocumentSnapshot : task.getResult())
                         {
                             al.add(queryDocumentSnapshot.getString("firstName") + " " + queryDocumentSnapshot.getString("lastName"));
-                            UserController.userD.add(new UserDetails(al.get(totalUsers), queryDocumentSnapshot.getId()));
+                            userD.add(new UserDetails(al.get(totalUsers), queryDocumentSnapshot.getId()));
                             /*if (userID.equals(queryDocumentSnapshot.getId()))
                             {
                                 //Log.println(Log.ASSERT, "YEAH ITS HERE", "DAWG");
@@ -119,9 +144,22 @@ public class UsersActivity extends AppCompatActivity {
         usersList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                UserController.currentUser.setChatWith(al.get(position));
-                //UserController.userD.get(position).setChatWith(al.get(position));
-                startActivity(new Intent(UsersActivity.this, ChatActivity.class));
+                DocumentReference docRef = FirebaseFirestore.getInstance() .collection("users").document(userID);
+                docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if(task.isSuccessful()){
+                            currentUser = new UserDetails(task.getResult().getString("firstName") + " " + task.getResult().getString("lastName"), userID);
+                            Log.println(Log.ASSERT, "???", currentUser.getName());
+                            currentUser.setChatWith(al.get(position));
+                            Log.println(Log.ASSERT, "IS this working?", currentUser.getName());
+                            //UserController.userD.get(position).setChatWith(al.get(position));
+                            startActivity(new Intent(UsersActivity.this, ChatActivity.class));
+                        }
+                    }
+                });
+
+
             }
         });
     }
