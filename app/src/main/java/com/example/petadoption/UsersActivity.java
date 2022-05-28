@@ -39,17 +39,16 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 //import android.support.v7.app.AppCompatActivity;
 
-
-
 public class UsersActivity extends AppCompatActivity {
     ListView usersList;
     TextView noUsersText;
     ArrayList<String> al = new ArrayList<>();
-    ArrayList<UserDetails> userClassList = new ArrayList<>();
+    //ArrayList<UserDetails> userClassList = new ArrayList<>();
     int totalUsers = 0;
     ProgressDialog pd;
 
     private FirebaseUser user;
+    private String localUser = "";
     private String userID;
     private String KEY_EMAIL = "email";
     private String email;
@@ -67,6 +66,20 @@ public class UsersActivity extends AppCompatActivity {
         usersList = (ListView)findViewById(R.id.usersList);
         noUsersText = (TextView)findViewById(R.id.noUsersText);
 
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        userID = user.getUid();
+
+        DocumentReference docRef = FirebaseFirestore.getInstance() .collection("users").document(userID);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if(task.isSuccessful()){
+                    UserController.currentUser = new UserDetails(task.getResult().getString("firstName") + " " + task.getResult().getString("lastName"), userID);
+                    Log.println(Log.ASSERT, "???", UserController.currentUser.getName());
+                }
+            }
+        });
+
         db.collection("users")
                 .get()
                 .addOnCompleteListener(task -> {
@@ -74,7 +87,14 @@ public class UsersActivity extends AppCompatActivity {
                         for(QueryDocumentSnapshot queryDocumentSnapshot : task.getResult())
                         {
                             al.add(queryDocumentSnapshot.getString("firstName") + " " + queryDocumentSnapshot.getString("lastName"));
-                            userClassList.add(new UserDetails(al.get(totalUsers)));
+                            UserController.userD.add(new UserDetails(al.get(totalUsers), queryDocumentSnapshot.getId()));
+                            /*if (userID.equals(queryDocumentSnapshot.getId()))
+                            {
+                                //Log.println(Log.ASSERT, "YEAH ITS HERE", "DAWG");
+                                UserController.userD.get(totalUsers).setCurrUser();
+                                Log.println(Log.ASSERT, "???", UserController.getCurrUser(userID).getName());
+                            }*/
+
                             //UserDetails.name = al.get(totalUsers);
                             totalUsers++;
                         }
@@ -98,7 +118,9 @@ public class UsersActivity extends AppCompatActivity {
         usersList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                userClassList.get(position).setChatWith(al.get(position));
+                UserController.currentUser.setChatWith(al.get(position));
+                Log.println(Log.ASSERT, "WHOMST", UserController.currentUser.getChatWith());
+                //UserController.userD.get(position).setChatWith(al.get(position));
                 startActivity(new Intent(UsersActivity.this, ChatActivity.class));
             }
         });

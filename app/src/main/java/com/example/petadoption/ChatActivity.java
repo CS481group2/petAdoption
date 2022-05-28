@@ -1,8 +1,10 @@
 package com.example.petadoption;
 
 // import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -20,6 +22,13 @@ import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,10 +40,17 @@ public class ChatActivity extends AppCompatActivity {
     ScrollView scrollView;
     Firebase reference1, reference2;
 
+    private FirebaseUser user;
+    private String userID;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        userID = user.getUid();
 
         layout = (LinearLayout)findViewById(R.id.layout1);
         sendButton = (ImageView)findViewById(R.id.sendButton);
@@ -42,8 +58,9 @@ public class ChatActivity extends AppCompatActivity {
         scrollView = (ScrollView)findViewById(R.id.scrollView);
 
         Firebase.setAndroidContext(this);
-        reference1 = new Firebase("https://petadoption-e740c-default-rtdb.firebaseio.com/messages/" + UserDetails.name + "_" + UserDetails.chatWith);
-        reference2 = new Firebase("https://petadoption-e740c-default-rtdb.firebaseio.com/messages/" + UserDetails.chatWith + "_" + UserDetails.name);
+        reference1 = new Firebase("https://petadoption-e740c-default-rtdb.firebaseio.com/messages/" + UserController.currentUser.getName() + "_" + UserController.currentUser.getChatWith());
+        Log.println(Log.ASSERT, "PLEASE", UserController.currentUser.getName());
+        reference2 = new Firebase("https://petadoption-e740c-default-rtdb.firebaseio.com/messages/" + UserController.currentUser.getChatWith() + "_" + UserController.currentUser.getName());
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +70,7 @@ public class ChatActivity extends AppCompatActivity {
                 if(!messageText.equals("")){
                     Map<String, String> map = new HashMap<String, String>();
                     map.put("message", messageText);
-                    map.put("user", UserDetails.name);
+                    map.put("user", UserController.currentUser.getName());
                     reference1.push().setValue(map);
                     reference2.push().setValue(map);
                 }
@@ -67,11 +84,11 @@ public class ChatActivity extends AppCompatActivity {
                 String message = map.get("message").toString();
                 String userName = map.get("user").toString();
 
-                if(userName.equals(UserDetails.name)){
+                if((UserController.getUsername(userName))){
                     addMessageBox("You:-\n" + message, 1);
                 }
                 else{
-                    addMessageBox(UserDetails.chatWith + ":-\n" + message, 2);
+                    addMessageBox(UserController.currentUser.getChatWith() + ":-\n" + message, 2);
                 }
             }
 
