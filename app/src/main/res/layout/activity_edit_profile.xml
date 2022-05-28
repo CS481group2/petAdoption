@@ -34,7 +34,7 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="20dp">
 
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/txtfName"
@@ -43,7 +43,7 @@
 
     </RelativeLayout>
 
-    <EditText
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Email@Email.com"
@@ -51,6 +51,19 @@
         android:layout_centerHorizontal="true"
         android:textSize="30dp"
         android:id="@+id/txtemail"/>
+
+    <Button
+        android:id="@+id/DeletePost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtemail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:text="Delete Post"
+        android:textSize="25dp" />
 
 
 

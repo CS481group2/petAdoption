@@ -1,5 +1,7 @@
 package com.example.petadoption;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -36,6 +38,8 @@ import java.io.IOException;
 public class EditProfileActivity extends DrawerBaseActivity
 {
     private Button btnChangePfp;
+    private Button btnDeletePost;
+
     private ImageView pfp;
     // firebase tools for uploading images and retriving the name
     FirebaseStorage storage;
@@ -64,6 +68,7 @@ public class EditProfileActivity extends DrawerBaseActivity
 
         pfp = findViewById(R.id.pfp);
         btnChangePfp= findViewById(R.id.btnChangePfp);
+        btnDeletePost = findViewById(R.id.DeletePost);
 
         // firebase stuffs
         mAuth= FirebaseAuth.getInstance();
@@ -74,6 +79,18 @@ public class EditProfileActivity extends DrawerBaseActivity
         userID = user.getUid();
 
 
+        btnDeletePost.setOnClickListener(new View.OnClickListener() // delete the users post...users can only have 1 active post this way
+        {
+            @Override
+            public void onClick(View view)
+            {
+                FirebaseFirestore fdb = FirebaseFirestore.getInstance();
+
+                DocumentReference docRef = fdb.collection("Posts").document(userID);
+                docRef.delete();
+            }
+
+        });
 
 
         emailTextView = findViewById(R.id.txtemail);
@@ -109,7 +126,8 @@ public class EditProfileActivity extends DrawerBaseActivity
             }
         });
 
-        btnChangePfp.setOnClickListener(new View.OnClickListener() {
+        btnChangePfp.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View view) {
                 updateImage();
@@ -133,6 +151,7 @@ public class EditProfileActivity extends DrawerBaseActivity
 
 
 
+
 /*
         btnChangePfp = findViewById(R.id.btnChangePfp);
         btnChangePfp.setOnClickListener(new OnClickListener()
@@ -147,6 +166,19 @@ public class EditProfileActivity extends DrawerBaseActivity
         //pfp = findViewById(R.id.pfp);
 
     }
+
+//    private void DeletePost()
+//    {
+//        DocumentReference docRef = FirebaseFirestore.getInstance() .collection("users").document(userID).delete().addOnSuccessListener(new OnSuccessListener<Void>()
+//        {
+//                    @Override
+//                    public void onSuccess(Void aVoid)
+//                    {
+//                        Toast.makeText(EditProfileActivity.this, "You successfully deleted the post", Toast.LENGTH_LONG).show();
+//                    }
+//        });
+//    }
+
     private void updateImage() {
     }
 

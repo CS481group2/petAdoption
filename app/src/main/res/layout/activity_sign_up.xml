@@ -90,12 +90,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/SignUpPassword"
-        android:text="Sign up"
-        android:layout_marginBottom="20dp"
         android:layout_centerHorizontal="true"
-        android:layout_margin="30dp"
-        android:textSize="25dp"
-        />
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:text="Sign up"
+        android:textSize="25dp" />
 
     <TextView
 
