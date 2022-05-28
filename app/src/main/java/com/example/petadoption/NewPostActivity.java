@@ -108,9 +108,13 @@ public class NewPostActivity extends DrawerBaseActivity
                     StorageReference filePath = storageReference.child("post_images").child(randomName + ".jpg");
                     filePath.putFile(postImageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                         @Override
-                        public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                        public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task)
+                        {
                             Task<Uri> downloadUri =  task.getResult().getStorage().getDownloadUrl();
-                            if (task.isSuccessful()) {
+                            if (task.isSuccessful())
+                            {
+                                DocumentReference docRef = firebaseFirestore.collection("Posts").document(current_user_id);
+
                                 Map<String, Object> postMap = new HashMap<>();
                                 postMap.put("image_url", downloadUri.toString());
                                 postMap.put("desc", description);
@@ -119,16 +123,21 @@ public class NewPostActivity extends DrawerBaseActivity
                                 postMap.put("breed", Breed);
                                 postMap.put("petname", petname);
                                 postMap.put("location", location);
-                                firebaseFirestore.collection("Posts").add(postMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                                docRef.set(postMap).addOnCompleteListener(new OnCompleteListener<Void>()
+                                {
                                     @Override
-                                    public void onComplete(@NonNull Task<DocumentReference> task) {
-                                        if (task.isSuccessful()) {
+                                    public void onComplete(@NonNull Task<Void> task)
+                                    {
+                                        if (task.isSuccessful())
+                                        {
 
                                             Toast.makeText(NewPostActivity.this, "Post was added", Toast.LENGTH_LONG).show();
-                                            Intent mainIntent = new Intent(NewPostActivity.this, NewPostActivity.class);
+                                            Intent mainIntent = new Intent(NewPostActivity.this, PostViewer.class);
                                             startActivity(mainIntent);
                                             finish();
-                                        } else {
+                                        }
+                                        else
+                                        {
                                             //error handle Oncomplete
                                         }
                                     }
