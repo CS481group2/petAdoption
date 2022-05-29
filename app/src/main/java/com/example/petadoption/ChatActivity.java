@@ -3,6 +3,8 @@ package com.example.petadoption;
 // import android.support.v7.app.AppCompatActivity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -126,6 +128,7 @@ public class ChatActivity extends AppCompatActivity {
 
     public void addMessageBox(String message, int type){
         TextView textView = new TextView(ChatActivity.this);
+        textView.setTextColor(Color.BLACK);
         textView.setText(message);
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         lp.setMargins(0, 0, 0, 10);
