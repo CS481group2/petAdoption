@@ -20,6 +20,7 @@ import android.widget.TextView;
 //import com.google.firebase.database.Firebase;
 //import com.google.firebase.FirebaseError;
 
+import com.example.petadoption.databinding.ActivityChatBinding;
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -36,8 +37,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ChatActivity extends AppCompatActivity {
-
+public class ChatActivity extends DrawerBaseActivity {
 
     LinearLayout layout;
     ImageView sendButton;
@@ -49,10 +49,15 @@ public class ChatActivity extends AppCompatActivity {
     private String userID;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+    // Nav Drawers Stuff
+    ActivityChatBinding activityChatBinding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat);
+        activityChatBinding = ActivityChatBinding.inflate(getLayoutInflater());
+        setContentView(activityChatBinding.getRoot());
+        allocateActivityTitle(UsersActivity.currentUser.getChatWith());
 
         /*for (int i = 0; i < UserController.userD.size(); i++)
         {

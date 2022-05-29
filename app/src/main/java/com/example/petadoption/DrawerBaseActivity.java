@@ -55,6 +55,11 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                 overridePendingTransition(0,0); // small transition
                 break;
 
+            case R.id.nav_message:
+                startActivity(new Intent(this, UsersActivity.class));
+                overridePendingTransition(0,0); // small transition
+                break;
+
             case R.id.nav_viewPost:
                 startActivity(new Intent(this, PostViewer.class));
                 overridePendingTransition(0,0); // small transition

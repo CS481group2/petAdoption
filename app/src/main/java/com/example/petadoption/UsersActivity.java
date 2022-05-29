@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.petadoption.databinding.ActivityUsersBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -40,8 +41,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 //import android.support.v7.app.AppCompatActivity;
 
-public class UsersActivity extends AppCompatActivity {
+public class UsersActivity extends DrawerBaseActivity {
 
+    // Nav Drawer stuff
+    ActivityUsersBinding activityUsersBinding;
 
     public static ArrayList<UserDetails> userD = new ArrayList<>();
     public static UserDetails currentUser;
@@ -92,7 +95,9 @@ public class UsersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_users);
+        activityUsersBinding = activityUsersBinding.inflate(getLayoutInflater());
+        setContentView(activityUsersBinding.getRoot());
+        allocateActivityTitle("Message");
 
         //String url = "https://petadoption-e740c-default-rtdb.firebaseio.com/users.json";
 
