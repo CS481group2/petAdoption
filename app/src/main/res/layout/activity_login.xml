@@ -5,101 +5,105 @@
     android:id="@+id/relative"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
-    android:background="@drawable/bg"
-    android:layout_margin="10dp"
-    >
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:src="@drawable/ic_baseline_pets_24"
+        android:background="@color/purple_500"/>
 
     <TextView
         android:id="@+id/text_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome to Pet Adoption"
-        android:textSize="20dp"
+        android:layout_below="@+id/logo"
         android:layout_marginBottom="20dp"
-
-        />
+        android:background="@color/purple_500"
+        android:text="Welcome to Pet Adoption"
+        android:textSize="23dp"
+        android:textAlignment="center"
+        android:textStyle="bold"/>
 
     <EditText
         android:id="@+id/LoginEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
         android:layout_below="@+id/text_login"
 
         android:layout_marginEnd="10dp"
 
-        android:layout_marginTop="50dp"
+        android:layout_marginRight="10dp"
 
-        android:background="#606fa8dc"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:padding="20dp"
         android:layout_marginBottom="20dp"
         android:drawableLeft="@drawable/ic_baseline_email_24"
         android:drawablePadding="10dp"
-        android:layout_marginRight="10dp" />
+        android:hint="Email"
+        android:padding="20dp" />
 
     <EditText
         android:id="@+id/LoginPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:password="true"
-        android:hint="Password"
         android:layout_below="@+id/LoginEmail"
-        android:background="#606fa8dc"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
         android:layout_marginEnd="10dp"
-
-        android:layout_marginTop="20dp"
-        android:padding="20dp"
+        android:layout_marginRight="10dp"
         android:drawableLeft="@drawable/ic_baseline_lock_24"
         android:drawablePadding="10dp"
-        android:layout_marginRight="10dp" />
+
+        android:hint="Password"
+        android:padding="20dp"
+        android:password="true" />
+
     <TextView
+        android:id="@+id/forgot_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/forgot_password"
 
-        android:clickable="true"
-        android:text="Forgot Password?"
         android:layout_below="@id/LoginPassword"
-        android:textColor="@color/white"
         android:layout_centerHorizontal="false"
-        android:layout_margin="10dp"
-        android:textSize="20dp"
-        android:focusable="true" />
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="Forgot Password?"
+        android:textSize="20dp" />
 
     <Button
         android:id="@+id/Login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/forgot_password"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
         android:text="Login"
         android:textSize="20dp"
-        android:layout_margin="10dp"
-        android:textStyle="bold"
-        android:padding="10dp"
-        />
+        android:textStyle="bold" />
+
     <TextView
+        android:id="@+id/googleLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/googleLogin"
         android:layout_below="@id/Login"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/purple_500"
         android:drawableLeft="@drawable/google"
-        android:text="Sign In with Google"
-        android:textStyle="bold"
-        android:background="#10A5F5"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
         android:drawablePadding="20dp"
         android:paddingRight="30dp"
-        android:textSize="25dp"
+        android:text="Sign In with Google"
+        android:textAlignment="center"
         android:textColor="@color/white"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        />
+        android:textSize="25dp"
+        android:textStyle="bold" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -120,13 +124,11 @@
         android:layout_below="@id/no_account"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="10dp"
         android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
         android:text="SIGN UP"
-        android:textColor="@color/white"
         android:textSize="30dp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
 </RelativeLayout>
 

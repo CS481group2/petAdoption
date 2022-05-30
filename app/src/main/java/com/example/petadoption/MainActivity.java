@@ -15,7 +15,8 @@ public class MainActivity extends DrawerBaseActivity {
 
     private FirebaseAuth mAuth;
     private Button buttonLogOut;
-    private Button leftBtn, middleLeftBtn, middleRightBtn, rightBtn,btnChangePfp;
+    private Button btnChangePfp;
+    private Button btnStayLoggedIn;
 
     // Nav drawer stuff
     ActivityMainBinding activityMainBinding;
@@ -39,29 +40,14 @@ public class MainActivity extends DrawerBaseActivity {
         });
 
 
-
-
-/*
-        middleRightBtn = findViewById(R.id.middleRightBtn);
-        middleRightBtn.setOnClickListener(new OnClickListener()
-        {
+        btnStayLoggedIn = findViewById((R.id.btnNo));
+        btnStayLoggedIn.setOnClickListener(new OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
-                startActivity(new Intent(MainActivity.this, MainActivity.class)); // edit when get post viewer scene
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, PostViewer.class));
             }
         });
-*/
 
-        btnChangePfp = findViewById(R.id.btnChangePfp);
-        btnChangePfp.setOnClickListener(new OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                startActivity(new Intent(MainActivity.this, UsersActivity.class)); // edit when get chat system
-            }
-        });
 
     }
 
