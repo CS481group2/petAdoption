@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,7 +37,11 @@ public class PostViewer extends DrawerBaseActivity {
         setContentView(activityPostViewerBinding.getRoot());
         allocateActivityTitle("Posts");
 
+        // divider stuffs
+        DividerItemDecoration itemDecoration= new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+
         RV = findViewById(R.id.recyclerview);
+        RV.addItemDecoration(itemDecoration);
 
         db = FirebaseFirestore.getInstance();
 

@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 
 import com.example.petadoption.databinding.ActivityNewPostBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -54,6 +55,7 @@ public class NewPostActivity extends DrawerBaseActivity
     private FirebaseAuth firebaseAuth;
 
     private String current_user_id;
+    String IMAGEURL;
 
     private Button leftBtn, middleLeftBtn, middleRightBtn, rightBtn,btnChangePfp;
 
@@ -111,14 +113,21 @@ public class NewPostActivity extends DrawerBaseActivity
                         @Override
                         public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task)
                         {
-                            Task<Uri> downloadUri =  task.getResult().getStorage().getDownloadUrl();
+                            filePath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    IMAGEURL= uri.toString();
+                                }
+                            });
+                            Task<Uri> urlTask =  task.getResult().getStorage().getDownloadUrl();
                             if (task.isSuccessful())
                             {
+
                                 DocumentReference docRef = firebaseFirestore.collection("Posts").document(current_user_id);
 
                                 Map<String, Object> postMap = new HashMap<>();
-                               // postMap.put("image_url", downloadUri.toString());
-                                postMap.put("image_url", randomName);
+                                postMap.put("image_url", IMAGEURL);
+                               // postMap.put("image_url", randomName);
                                 postMap.put("desc", description);
                                 postMap.put("user_id", current_user_id);
                                 postMap.put("timestamp", FieldValue.serverTimestamp());

@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FileDownloadTask;
@@ -67,6 +68,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder> {
         //holder.time.setText(ld.getTimestamp());
        holder.petdesc.setText(ld.getDesc()+(ld.getImage_url()));
         //Picasso.get().load(ld.getImage_url()).into(holder.rowImage);
+
+        Glide.with(holder.image.getContext()).load(ld.getImage_url()).into(holder.image);
+        /*
         storage= FirebaseStorage.getInstance();
         final StorageReference imgRef = storage.getReference().child("post_images").child(ld.getImage_url());
 
