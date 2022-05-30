@@ -1,24 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="300dp"
+        android:background="#606fa8dc">
 
-        <Button
-            android:id="@+id/message_button"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
+        <ImageView
+            android:id="@+id/postImage"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background">
+        </ImageView>
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:id="@+id/petName"
+            android:text="Pet name"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:layout_toRightOf="@+id/postImage"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/petBreed"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/petName"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/postImage"
+            android:text="Breed"
+            android:textColor="#000000"
+
+            android:textSize="20dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/petLocation"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/petBreed"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/postImage"
+            android:text="Location"
+            android:textColor="#000000"
+            android:textSize="20dp">
+
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/petDec"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/postImage"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
             android:text="Description"
-            android:paddingRight="16dp"
-            android:textSize="10sp"
-            android:layout_weight="1"/>
-    </LinearLayout>
-</LinearLayout>
+            android:textColor="#000000"
+            android:textSize="20dp"></TextView>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnMessage"
+            android:text="Message"
+            android:layout_below="@+id/petDec"
+            android:layout_toRightOf="@+id/postImage"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="100dp"/>
+
+
+    </RelativeLayout>
+</RelativeLayout>

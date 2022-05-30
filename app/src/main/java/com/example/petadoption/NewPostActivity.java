@@ -103,7 +103,8 @@ public class NewPostActivity extends DrawerBaseActivity
                 String location = NewPostLocation.getText().toString();
                 if (!TextUtils.isEmpty(description) && newPostImage != null) {
 
-                    String randomName = UUID.randomUUID().toString();
+                    //String randomName = UUID.randomUUID().toString();
+                    String randomName = current_user_id + petname ;
 
                     StorageReference filePath = storageReference.child("post_images").child(randomName + ".jpg");
                     filePath.putFile(postImageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
@@ -116,7 +117,8 @@ public class NewPostActivity extends DrawerBaseActivity
                                 DocumentReference docRef = firebaseFirestore.collection("Posts").document(current_user_id);
 
                                 Map<String, Object> postMap = new HashMap<>();
-                                postMap.put("image_url", downloadUri.toString());
+                               // postMap.put("image_url", downloadUri.toString());
+                                postMap.put("image_url", randomName);
                                 postMap.put("desc", description);
                                 postMap.put("user_id", current_user_id);
                                 postMap.put("timestamp", FieldValue.serverTimestamp());
