@@ -8,7 +8,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:background="#606fa8dc">
 
         <ImageView
@@ -63,14 +63,17 @@
 
         <TextView
             android:id="@+id/petDec"
-            android:layout_width="120dp"
-            android:layout_height="30dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/postImage"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="5dp"
-            android:text="Description"
             android:textColor="#000000"
-            android:textSize="20dp"></TextView>
+            android:textSize="20dp"
+
+            android:text="description">
+
+        </TextView>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
