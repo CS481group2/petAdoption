@@ -45,6 +45,9 @@ public class Animal {
     {
         return this.image_url;
     }
+    public String getUser_id(){
+        return  this.user_id;
+    }
     /*
     public String getTimestamp(){
         return this.timestamp;

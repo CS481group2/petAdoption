@@ -65,8 +65,9 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder> {
         holder.petname.setText(ld.getPetname());
         holder.petbreed.setText(ld.getBreed());
         holder.location.setText(ld.getLocation());
+
         //holder.time.setText(ld.getTimestamp());
-       holder.petdesc.setText(ld.getDesc()+(ld.getImage_url()));
+       holder.petdesc.setText(ld.getDesc());
         //Picasso.get().load(ld.getImage_url()).into(holder.rowImage);
 
         Glide.with(holder.image.getContext()).load(ld.getImage_url()).into(holder.image);
