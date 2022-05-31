@@ -25,6 +25,10 @@ public class Animal {
         location= loc;
     }
 
+    public String getUser_id()
+    {
+        return this.user_id;
+    }
 
     public String getDesc()
     {
@@ -44,9 +48,6 @@ public class Animal {
     public String getImage_url()
     {
         return this.image_url;
-    }
-    public String getUser_id(){
-        return  this.user_id;
     }
     /*
     public String getTimestamp(){

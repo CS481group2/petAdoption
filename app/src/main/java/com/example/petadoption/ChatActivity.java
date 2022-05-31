@@ -52,6 +52,42 @@ public class ChatActivity extends DrawerBaseActivity {
     // Nav Drawers Stuff
     ActivityChatBinding activityChatBinding;
 
+    private boolean working = false;
+    public boolean getUsername(String user, String uid)
+    {
+        /*for(int i = 0; i < userD.size(); i++)
+        {
+            if(user.equals(userD.get(i).getName())) return true;
+        }*/
+
+        if (user.equals(UsersActivity.currentUser.getName()))
+        {
+            return true;
+        }
+        return false;
+
+        /*DocumentReference docRef = FirebaseFirestore.getInstance() .collection("users").document(uid);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if(task.isSuccessful()){
+                    if (user.equals(task.getResult().getString("firstName") + " " + task.getResult().getString("lastName")))
+                    {
+                        Log.println(Log.ASSERT, "Passed Name", user);
+                        Log.println(Log.ASSERT, "Checked Name", task.getResult().getString("firstName") + " " + task.getResult().getString("lastName"));
+                        working = true;
+                    }
+                }
+            }
+        });
+        if(working)
+        {
+            working = false;
+            return true;
+        }
+        return false;*/
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +123,7 @@ public class ChatActivity extends DrawerBaseActivity {
                     Map<String, String> map = new HashMap<String, String>();
                     map.put("message", messageText);
                     map.put("user", UsersActivity.currentUser.getName());
+
                     reference1.push().setValue(map);
                     reference2.push().setValue(map);
                 }
@@ -100,8 +137,9 @@ public class ChatActivity extends DrawerBaseActivity {
                 Map map = dataSnapshot.getValue(Map.class);
                 String message = map.get("message").toString();
                 String userName = map.get("user").toString();
+                Log.println(Log.ASSERT, "SENT BY", userName);
+                if((getUsername(userName, userID))){
 
-                if((UsersActivity.getUsername(userName))){
                     addMessageBox("You:-\n" + message, 1);
                 }
                 else{

@@ -49,14 +49,6 @@ public class UsersActivity extends DrawerBaseActivity {
     public static ArrayList<UserDetails> userD = new ArrayList<>();
     public static UserDetails currentUser;
 
-    public static boolean getUsername(String user)
-    {
-        for(int i = 0; i < userD.size(); i++)
-        {
-            if(user.equals(userD.get(i).getName())) return true;
-        }
-        return false;
-    }
 
     public static String getChattingWith(String user)
     {
@@ -84,6 +76,8 @@ public class UsersActivity extends DrawerBaseActivity {
     int totalUsers = 0;
     ProgressDialog pd;
 
+    private ArrayList<String> chattingWithUsers;
+
     private FirebaseUser user;
     private String localUser = "";
     private String userID;
@@ -91,6 +85,15 @@ public class UsersActivity extends DrawerBaseActivity {
     private String email;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+    private boolean hasChat(String uid)
+    {
+        for(int i = 0; i < chattingWithUsers.size(); i++)
+        {
+            if (uid.equals(chattingWithUsers.get(i)))
+                return true;
+        }
+        return false;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,17 +111,33 @@ public class UsersActivity extends DrawerBaseActivity {
         userID = user.getUid();
 
 
-
+        db.getInstance().collection("users")
+                .document(userID).get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        DocumentSnapshot document = task.getResult();
+                        // TODO: check if document.data().array exists
+                        chattingWithUsers = (ArrayList<String>) document.get("chattingWith");
+                        Log.println(Log.ASSERT, "USER???", chattingWithUsers.get(0));
+                    }
+                });
 
 
         db.collection("users")
                 .get()
                 .addOnCompleteListener(task -> {
                     if(task.isSuccessful()) {
+
                         for(QueryDocumentSnapshot queryDocumentSnapshot : task.getResult())
                         {
-                            al.add(queryDocumentSnapshot.getString("firstName") + " " + queryDocumentSnapshot.getString("lastName"));
-                            userD.add(new UserDetails(al.get(totalUsers), queryDocumentSnapshot.getId()));
+                            //Log.println(Log.ASSERT, "USER???", chattingWithUsers.get(0));
+                            //Log.println(Log.ASSERT, "QUERYUSER???", queryDocumentSnapshot.getId());
+                            if(hasChat(queryDocumentSnapshot.getId())) {
+                                al.add(queryDocumentSnapshot.getString("firstName") + " " + queryDocumentSnapshot.getString("lastName"));
+
+
+                                //userD.add(new UserDetails(al.get(totalUsers), queryDocumentSnapshot.getId()));
                             /*if (userID.equals(queryDocumentSnapshot.getId()))
                             {
                                 //Log.println(Log.ASSERT, "YEAH ITS HERE", "DAWG");
@@ -126,8 +145,9 @@ public class UsersActivity extends DrawerBaseActivity {
                                 Log.println(Log.ASSERT, "???", UserController.getCurrUser(userID).getName());
                             }*/
 
-                            //UserDetails.name = al.get(totalUsers);
-                            totalUsers++;
+                                //UserDetails.name = al.get(totalUsers);
+                                totalUsers++;
+                            }
                         }
 
                         if(totalUsers == 0){
@@ -168,6 +188,8 @@ public class UsersActivity extends DrawerBaseActivity {
             }
         });
     }
+
+
 
 
 }
