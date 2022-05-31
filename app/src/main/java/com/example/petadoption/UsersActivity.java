@@ -133,11 +133,12 @@ public class UsersActivity extends DrawerBaseActivity {
                         {
                             //Log.println(Log.ASSERT, "USER???", chattingWithUsers.get(0));
                             //Log.println(Log.ASSERT, "QUERYUSER???", queryDocumentSnapshot.getId());
-                            if(hasChat(queryDocumentSnapshot.getId())) {
-                                al.add(queryDocumentSnapshot.getString("firstName") + " " + queryDocumentSnapshot.getString("lastName"));
+                            if (chattingWithUsers.size() > 0) {
+                                if (hasChat(queryDocumentSnapshot.getId())) {
+                                    al.add(queryDocumentSnapshot.getString("firstName") + " " + queryDocumentSnapshot.getString("lastName"));
 
 
-                                //userD.add(new UserDetails(al.get(totalUsers), queryDocumentSnapshot.getId()));
+                                    //userD.add(new UserDetails(al.get(totalUsers), queryDocumentSnapshot.getId()));
                             /*if (userID.equals(queryDocumentSnapshot.getId()))
                             {
                                 //Log.println(Log.ASSERT, "YEAH ITS HERE", "DAWG");
@@ -145,8 +146,9 @@ public class UsersActivity extends DrawerBaseActivity {
                                 Log.println(Log.ASSERT, "???", UserController.getCurrUser(userID).getName());
                             }*/
 
-                                //UserDetails.name = al.get(totalUsers);
-                                totalUsers++;
+                                    //UserDetails.name = al.get(totalUsers);
+                                    totalUsers++;
+                                }
                             }
                         }
 
