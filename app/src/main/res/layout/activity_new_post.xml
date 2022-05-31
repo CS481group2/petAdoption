@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".NewPostActivity">
 
     <ImageView
@@ -13,7 +13,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="-50dp"
         android:adjustViewBounds="false"
         android:contentDescription="@string/add_image"
         android:scaleType="centerCrop"
@@ -47,29 +47,34 @@
         android:text=""
         tools:ignore="TextContrastCheck" />
 
-    <EditText
-        android:id="@+id/New_Post_Description"
+    <ScrollView
+        android:id="@+id/ScrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/New_Post_Breed"
+        android:layout_below="@+id/New_Post_Location"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:ems="10"
-        android:hint="Description"
-        android:inputType="textLongMessage|textMultiLine"
-        android:minHeight="48dp"
-        android:text=""
-        android:textAlignment="textStart" />
+        android:layout_marginRight="16dp">
 
+        <EditText
+            android:id="@+id/New_Post_Description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Description"
+            android:inputType="textLongMessage|textMultiLine"
+            android:maxHeight="100dp"
+            android:minHeight="48dp"
+            android:text=""
+            android:textAlignment="textStart" />
+    </ScrollView>
     <!--suppress AndroidUnresolvableTag -->
 
     <EditText
         android:id="@+id/New_Post_Location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/New_Post_Breed"
+        android:layout_below="@id/New_Post_Breed"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="50dp"
         android:layout_marginRight="16dp"
         android:ems="10"
         android:hint="Location"
@@ -78,27 +83,15 @@
         android:text=""
         android:textAlignment="textStart" />
 
-    <TextView
-        android:id="@+id/text_View"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/New_Post_Description"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginRight="16dp"
-        android:focusable="false" />
-
     <Button
         android:id="@+id/Create_New_Post"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/text_View"
+        android:layout_alignTop="@+id/ScrollView"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="130dp"
         android:layout_marginRight="16dp"
         android:text="create new post" />
-
-
 
 
 </RelativeLayout>
