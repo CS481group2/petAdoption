@@ -118,8 +118,9 @@ public class UsersActivity extends DrawerBaseActivity {
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         DocumentSnapshot document = task.getResult();
                         // TODO: check if document.data().array exists
-                        chattingWithUsers = (ArrayList<String>) document.get("chattingWith");
-                        Log.println(Log.ASSERT, "USER???", chattingWithUsers.get(0));
+                        if (document.get("chattingWith") != null)
+                            chattingWithUsers = (ArrayList<String>) document.get("chattingWith");
+                        //Log.println(Log.ASSERT, "USER???", chattingWithUsers.get(0));
                     }
                 });
 
